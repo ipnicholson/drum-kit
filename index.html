@@ -71,16 +71,17 @@
     key.classList.add('playing');
   };
 
-  // Remove transition if another sound is triggered
+  // Remove CSS transition when sound is finished
   function removeTransition(event) {
     if (event.propertyName !== 'transform') return; // Skip if not a transform
     this.classList.remove('playing');
   };
 
-  // 
+  // Select key <div>s and add event listeners 
   const keys = document.querySelectorAll('.key');
   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
+  // Listen for keyboard input
   window.addEventListener('keydown', playSound)
   
 </script>
